@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="section-comparador" class="section">
+    <div class="flex items-center justify-between mb-8">
+        <div>
+            <h2 class="text-3xl font-bold text-slate-800">Comparador de Proveedores</h2>
+            <p class="text-slate-500 mt-1">Compara precios entre proveedores</p>
+        </div>
+    </div>
+    <!-- Product Selector -->
+    <div class="card p-6 mb-8">
+        <div class="flex items-end gap-4">
+            <div class="flex-1">
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Selecciona un producto:</label> 
+                <select id="product-select" class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white font-medium">
+                    <option value="">-- Elige un producto --</option>
+                    <option value="iphone">📱 iPhone 15 Pro</option>
+                    <option value="macbook">💻 MacBook Pro 14"</option>
+                    <option value="airpods">🎧 AirPods Pro 2</option>
+                    <option value="camiseta">👕 Camiseta Premium</option>
+                    <option value="sofa">🛋️ Sofá Moderno</option>
+                </select>
+            </div>
+            <button class="bg-slate-200 text-slate-700 px-6 py-3 rounded-xl font-semibold hover:bg-slate-300 transition-all">
+                Limpiar 
+            </button>
+        </div>
+    </div>
+    <!-- Comparison Results -->
+    <div id="comparison-results" class="hidden">
+        <!-- Product Info -->
+        <div class="card p-6 mb-6">
+            <div class="flex items-center gap-6">
+                <div id="product-emoji" class="w-24 h-24 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center text-6xl">
+                    📱
+                </div>
+                <div class="flex-1">
+                    <h3 id="product-name" class="text-2xl font-bold text-slate-800">iPhone 15 Pro</h3>
+                    <p id="product-desc" class="text-slate-500 mt-1">128GB - Titanio Space Black</p>
+                    <div class="flex items-center gap-4 mt-4">
+                        <div>
+                            <p class="text-xs text-slate-400">Mejor Precio</p>
+                            <p id="best-price" class="text-2xl font-bold text-emerald-500">$1,049.00</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400">Precio Promedio</p>
+                            <p id="avg-price" class="text-2xl font-bold text-slate-800">$1,108.33</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400">Diferencia Máxima</p>
+                            <p id="price-diff" class="text-2xl font-bold text-orange-500">$150.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Suppliers Comparison Table -->
+        <div class="card overflow-hidden">
+            <div class="p-6 border-b border-slate-100">
+                <h3 class="font-bold text-slate-800 text-lg">Proveedores disponibles</h3>
+            </div>
+            <div id="suppliers-list" class="divide-y divide-slate-100">
+                <!-- Suppliers will be inserted here -->
+            </div>
+        </div>
+    </div>
+    <!-- Empty State -->
+    <div id="empty-state" class="card p-12 text-center">
+        <div class="text-6xl mb-4">
+            ⚖️
+        </div>
+        <h3 class="text-2xl font-bold text-slate-800 mb-2">Selecciona un producto</h3>
+        <p class="text-slate-500">Elige un producto del selector superior para ver los precios de todos nuestros proveedores</p>
+    </div>
+</section>
+{% endblock %}
